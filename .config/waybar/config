@@ -1,0 +1,175 @@
+{
+  "layer": "top",
+  "position": "top",
+  "margin-top": 4,
+  "margin-left": 4,
+  "margin-right": 4,
+  "margin-bottom": 0,
+  "spacing": 0,
+
+  "modules-left": [
+    "custom/os",
+    "group/leftcapsule"
+  ],
+  
+  "modules-center": [
+    "clock"
+  ],
+  
+  "modules-right": [
+    "tray",
+    "cpu",
+    "memory",
+    "hyprland/language",
+    "bluetooth",
+    "network",
+    "pulseaudio",
+    "backlight",
+    "battery",
+    "custom/power"
+  ],
+
+  "group/leftcapsule": {
+    "orientation": "horizontal",
+    "modules": [
+      "hyprland/workspaces",
+      "mpris"
+    ]
+  },
+
+  "custom/os": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "pkill rofi || rofi -show drun"
+  },
+
+  "hyprland/workspaces": {
+    "on-click": "hyprctl dispatch workspace {name}",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "disable-scroll": false,
+    "all-outputs": true,
+    "format": "{icon}",
+    "format-icons": {
+      "active": "󰮯",
+      "default": "󰊠",
+      "urgent": "󰀨"
+    },
+    "persistent-workspaces": {
+      "1": [], "2": [], "3": [], "4": []
+    }
+  },
+
+  "cpu": {
+    "interval": 2,
+    "format": " {usage}%",
+    "tooltip": true,
+    "on-click": "gnome-system-monitor || kitty -e btop"
+  },
+
+  "memory": {
+    "interval": 2,
+    "format": " {percentage}%",
+    "tooltip-format": "Used: {used:0.1f}GB / Total: {total:0.1f}GB",
+    "on-click": "gnome-system-monitor || kitty -e btop"
+  },
+
+  "mpris": {
+    "format": " {status_icon} {dynamic}",
+    "format-paused": " {status_icon} <i>{dynamic}</i>",
+    "status-icons": {
+      "playing": "▶",
+      "paused": "⏸"
+    },
+    "dynamic-len": 30,
+    "dynamic-order": ["artist", "title"],
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next"
+  },
+
+  "clock": {
+    "format": " {:%H:%M  •  %d %b}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "on-click": "gnome-calendar",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#b1c5ff'><b>{}</b></span>",
+        "days": "<span color='#e2e2e9'><b>{}</b></span>",
+        "weeks": "<span color='#c0c6dd'><b>W{}</b></span>",
+        "weekdays": "<span color='#304578'><b>{}</b></span>",
+        "today": "<span color='#ffb4ab'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
+  },
+
+  "hyprland/language": {
+    "format": " {}",
+    "format-en": "EN",
+    "format-ru": "RU",
+    "format-uz": "UZ"
+  },
+
+  "bluetooth": {
+    "format": "",
+    "format-connected": " {num_connections}",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "blueman-manager"
+  },
+
+  "network": {
+    "format-wifi": "󰤨 {signalStrength}% ⬇ {bandwidthDownBytes}",
+    "format-ethernet": "󰈀 {ipaddr} ⬇ {bandwidthDownBytes}",
+    "format-disconnected": "󰤭 ",
+    "interval": 2,
+    "tooltip-format-wifi": "📶 {essid}\n📡 Signal: {signalStrength}%\n🌐 IP: {ipaddr}\n⬇ Download: {bandwidthDownBytes}\n⬆ Upload: {bandwidthUpBytes}",
+    "tooltip-format-ethernet": "🔌 {ifname}\n🌐 IP: {ipaddr}\n⬇ Download: {bandwidthDownBytes}\n⬆ Upload: {bandwidthUpBytes}",
+    "tooltip-format-disconnected": "❌ No connection",
+    "on-click": "networkmanager_dmenu"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 Muted",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pavucontrol",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+  },
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "on-scroll-up": "brightnessctl set +5%",
+    "on-scroll-down": "brightnessctl set 5%-"
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰂄 {capacity}%",
+    "format-icons": ["󰂎", "󰁺", "󰁼", "󰁾", "󰂀", "󰁹"]
+  },
+
+  "custom/power": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "pkill -x wlogout || wlogout"
+  }
+}

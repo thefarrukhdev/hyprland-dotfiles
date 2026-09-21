@@ -1,0 +1,64 @@
+@import "/home/farrukh/.config/waybar/colors.css";
+
+window {
+    margin: 0px;
+    border: 3px solid @primary;
+    border-radius: 16px;
+    background-color: @surface_container_highest;
+    font-family: "JetBrainsMono Nerd Font", "Fira Sans", sans-serif;
+    font-size: 16px;
+    color: @on_surface;
+    opacity: 0.95;
+    box-shadow: 0px 0px 20px @primary;
+}
+
+#outer-box {
+    margin: 10px;
+    border: none;
+    background-color: transparent;
+}
+
+#input {
+    margin: 10px 10px 20px 10px;
+    border: 2px solid @primary;
+    border-radius: 12px;
+    padding: 12px;
+    background-color: @surface;
+    color: @on_surface;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#input:focus {
+    border: 2px solid @primary;
+    background-color: @surface_variant;
+}
+
+#scroll {
+    margin: 0px 10px 10px 10px;
+    border: none;
+    background-color: transparent;
+}
+
+#text {
+    margin: 5px;
+    border: none;
+    color: @on_surface;
+}
+
+#entry {
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    transition: all 0.2s ease;
+}
+
+#entry:selected {
+    background-color: @primary_container;
+    outline: none;
+}
+
+#text:selected {
+    color: @on_primary_container;
+    font-weight: bold;
+}
