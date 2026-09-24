@@ -26,7 +26,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("systemctl --user restart media-notify.service")
     
     -- 3. RGB restore (backgrounded to prevent blocking)
-    hl.exec_cmd("bash -c 'sleep 2 && ~/.local/bin/rgb-panel --restore &'")
+    hl.exec_cmd("~/.config/hypr/scripts/rgb_restore.sh &")
     
     -- 4. Cliphist
     hl.exec_cmd("env CLIPHIST_MAX_ITEMS=50 wl-paste --type text --watch cliphist store")
