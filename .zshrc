@@ -75,5 +75,5 @@ alias f="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 [ -f ~/.zshrc_custom ] && source ~/.zshrc_custom
-export RENDER_API_KEY="rnd_p64I2SPt0HbMWCymfPyToVr1O3Ly"
 export PATH="$HOME/.local/bin:$PATH"
+[ -f ~/.zshrc_secrets ] && source ~/.zshrc_secrets
