@@ -1,8 +1,14 @@
-#!/bin/bash
-# Wait for the compositor and key services (like waybar) to be fully loaded
-until pgrep -x waybar > /dev/null; do
+#!/usr/bin/env bash
+
+# Waybar yuklanishini maksimal 10 soniya kutish (Infinity Loop/Qotib qolishning oldini olish)
+for i in {1..20}; do
+    if pgrep -x waybar > /dev/null; then
+        sleep 0.5
+        ~/.local/bin/rgb-panel --restore
+        exit 0
+    fi
     sleep 0.5
 done
-# Small delay to ensure waybar has settled if rgb-panel interacts with it or the display
-sleep 0.5
+
+# Agar Waybar umuman ishga tushmasa ham, baribir RGB ni tiklash
 ~/.local/bin/rgb-panel --restore

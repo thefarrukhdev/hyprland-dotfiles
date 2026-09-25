@@ -23,7 +23,7 @@ window#waybar {
  * THE MAIN CAPSULES (Glassmorphism & Pill Shape)
  */
 #leftcapsule, .modules-center, .modules-right {
-    background: alpha(@surface_container_highest, 0.8);
+    background: rgba(0, 0, 0, 0.2);
     border: 1px solid alpha(@primary, 0.35);
     border-radius: 50px;
     margin-top: 8px;

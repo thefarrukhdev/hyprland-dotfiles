@@ -4,6 +4,7 @@
 hl.config({
     layerrule = {
         "blur, waybar",
+        "ignorezero, waybar",
         "blur, wofi",
         "ignorealpha 0.2, wofi",
         "blur, rofi",

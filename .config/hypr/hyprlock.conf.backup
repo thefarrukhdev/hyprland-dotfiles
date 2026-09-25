@@ -1,0 +1,70 @@
+general {
+    immediate_render = true
+    grace = 0
+    fractional_scaling = 2
+}
+
+background {
+    path = screenshot
+    blur_passes = 2
+    blur_size = 7
+}
+
+input-field {
+    size = 250, 50
+    dots_size = 0.2
+    dots_spacing = 0.3
+    dots_center = true
+    inner_color = rgba(0, 0, 0, 0.0)
+    font_color = rgba(b1c5ffff)
+    font_family = Fira Sans Semibold
+    outer_color = rgba(b1c5ffff) rgba(304578ff) 45deg
+    outline_thickness = 2
+    fade_on_empty = false
+    placeholder_text = <i>Input Password...</i>
+    hide_input = false
+    rounding = 15
+    check_color = rgba(dae2ffff) rgba(b1c5ffff) 120deg
+    fail_color = rgba(ffb4abff) rgba(690005ff) 40deg
+    fail_text = <i>$FAIL <b>($ATTEMPTS)</b></i>
+    position = 0, -20
+    halign = center
+    valign = center
+    shadow_passes = 3
+    shadow_size = 5
+    shadow_color = rgba(000000ff)
+}
+
+label {
+    text = $TIME
+    color = rgba(b1c5ffff)
+    font_size = 70
+    font_family = Fira Sans Semibold
+    position = 0, 100
+    halign = center
+    valign = center
+    shadow_passes = 3
+    shadow_size = 5
+}
+
+label {
+    text = cmd[update:60000] date +"%A, %d %B %Y"
+    color = rgba(e2e2e9ff)
+    font_size = 16
+    font_family = Fira Sans Semibold
+    position = 0, 20
+    halign = center
+    valign = center
+    shadow_passes = 2
+    shadow_size = 3
+}
+
+label {
+    text = $LAYOUT
+    color = rgba(e2e2e9ff)
+    font_size = 14
+    font_family = Fira Sans Semibold
+    position = 0, -90
+    halign = center
+    valign = center
+}
